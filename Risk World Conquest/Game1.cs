@@ -1,6 +1,12 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Storage;
+using Microsoft.Xna.Framework.Audio;
+
 
 namespace Risk_World_Conquest
 {
@@ -11,10 +17,29 @@ namespace Risk_World_Conquest
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        int width;
+        int height;
+        Texture2D mainMenu;
+        Rectangle mainMenuRec;
+        enum GameState
+        {
+            MainMenu,
+            Options,
+            Playing,
+        }
+        GameState CurrentGameState = GameState.MainMenu;
 
+        cButton btnPlay;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
+            width = 1366;
+            height = 768;
+            graphics.PreferredBackBufferHeight = height;
+            graphics.PreferredBackBufferWidth = width;
+            graphics.IsFullScreen = true;
+            graphics.ApplyChanges();
+            IsMouseVisible = true;
             Content.RootDirectory = "Content";
         }
 
@@ -27,7 +52,9 @@ namespace Risk_World_Conquest
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            Camara.SetGraphicsDeviceManager(graphics);
+            Camara.SetTarget(Vector2.Zero);
+            Camara.SetWorldWidth(7);
             base.Initialize();
         }
 
@@ -39,7 +66,10 @@ namespace Risk_World_Conquest
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            btnPlay = new cButton(Content.Load<Texture2D>("risklogo"), graphics.GraphicsDevice);
+            btnPlay.setPosition(new Vector2(350, 300));
+            mainMenu = Content.Load<Texture2D>("800x600");
+            mainMenuRec = new Rectangle((int)((width / 2) - (mainMenu.Width / 2)), (int)((height / 2) - (mainMenu.Height / 2)), 800, 600);
             // TODO: use this.Content to load your game content here
         }
 
@@ -62,6 +92,19 @@ namespace Risk_World_Conquest
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            MouseState mouse = Mouse.GetState();
+
+            switch (CurrentGameState)
+            {
+                case GameState.MainMenu:
+                    if (btnPlay.isClicked == true) CurrentGameState = GameState.Playing;
+                    btnPlay.Update(mouse);
+                    break;
+                case GameState.Playing:
+                    break;
+            }
+
+
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -73,10 +116,23 @@ namespace Risk_World_Conquest
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.DarkBlue);
+            Console.WriteLine((int)((width / 2) / 2));
+            Console.WriteLine((int)((height / 2) / 2));
 
             // TODO: Add your drawing code here
-
+            spriteBatch.Begin();
+            spriteBatch.Draw(mainMenu,mainMenuRec,Color.White);
+            switch (CurrentGameState)
+            {
+                case GameState.MainMenu:
+                    //spriteBatch.Draw(Content.Load<Texture2D>bntWIII)
+                    btnPlay.Draw(spriteBatch);
+                    break;
+                case GameState.Playing:
+                    break;
+            }
+            spriteBatch.End();
             base.Draw(gameTime);
         }
     }
