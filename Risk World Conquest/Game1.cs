@@ -34,47 +34,35 @@ namespace Risk_World_Conquest
     
     public class Game1 : Game
     {
-        /// <summary>
-        /// 
-        /// Regras resumidas
-        /// O tabuleiro é dividido em 42 partes :  gronelandia ,America do norte, e central em 9 partes;4 a ameriaca do sul;europa e russia ocidental em 7 partes;
-        /// Asia e restante russia em 12 partes;Africa em 6 partes; Filipinas e Oceania em 4 partes;
-        /// 1º selecionar o nº de jogadores , min vai ser 3 cada um escolhe uma cor ou e atribuida automaticamente;
-        /// 2ªdistribuir as unidades dos exercitos dos jogadores pelos territorios em qualqer continente(se forem 3 serao 35 para cada um, para 4 30 unidades, para 5 25 unidades e para 6 20 unidades
-        /// 3ªO exrcito e composto por as seguintes unidades:infantaria, cavalaria e artilharia;
-        /// 1 exercito corresponde a 1 infantaria qe pode chegar ate 4; 
-        /// 5 elementos do exercito de infantaria correspondem a 1 cavalaria;
-        /// 5 elementos de cavalaria corrposndem a 1 artilharia;
-        /// No começo do jogo o jogador qe tirar o maior nº começa a distribuir as unidades pelo mapa
-        /// No final de os exercitos serem distribuidos , o jogador pode optar por invadir os territorios em qe os seus exercitos façam fronteira
-        /// ou de reforçar os seus territorios 
-        /// Regras de combate: depois de selecionar o seu exercito e o terreno qe qer invadir , as duas forças terao de lutar ate os exercitos de uma das forças 
-        /// ficarem a 0. pudendo depois ocupar , caso ganhe, com as forças restantes.
-        /// Os combates serao atraves de lancamento do dado. o qe tiver maior nº ganhe o combate e elimina uma unidade do exercito.
-        /// Reforçar territorios:no minimo o jogador no final do seu turno recebe sempre 3 exercitos. 9 terr.  a 11 terr. pode receber 3 exer. ,14 terr. 4 exer. ,15 terr. 5 exer. e por assim fora
-        /// Cada territorio tem de ter pelo menos uma unidade
-        /// Ganha qem conquistar tds os territorios no mapa
-        /// </summary>
+        //Variáveis do Monogame
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        SpriteFont gametxt;
         int width;
         int height;
+        //Variáveis do Menu
         Texture2D mainMenu;
         Rectangle mainMenuRec;
+        //Variáveis do Jogo
+        int Número_de_Jogadores=3;
         enum GameState
         {
             MainMenu,
             Options,
-            Playing,
+            Setup,
+            Placing,
+            Attacking,
+            Reinforcing,
         }
         GameState CurrentGameState = GameState.MainMenu;
-
+        //Botões do Menu:
         cButton btnPlay;
+        Button add,sub;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            width = 1366;
-            height = 768;
+            width = 1280;
+            height = 880;
             graphics.PreferredBackBufferHeight = height;
             graphics.PreferredBackBufferWidth = width;
             graphics.IsFullScreen = true;
@@ -106,8 +94,14 @@ namespace Risk_World_Conquest
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
             btnPlay = new cButton(Content.Load<Texture2D>("risklogo"), graphics.GraphicsDevice);
             btnPlay.setPosition(new Vector2(350, 300));
+            add = new Button(GraphicsDevice,Content.Load<Texture2D>("mais"),new Vector2(1100,300));
+            sub = new Button(GraphicsDevice,Content.Load<Texture2D>("menos"),new Vector2(1100,350));
+
+            gametxt = Content.Load<SpriteFont>("GameText");
+
             mainMenu = Content.Load<Texture2D>("800x600");
             mainMenuRec = new Rectangle((int)((width / 2) - (mainMenu.Width / 2)), (int)((height / 2) - (mainMenu.Height / 2)), 800, 600);
             // TODO: use this.Content to load your game content here
@@ -133,19 +127,23 @@ namespace Risk_World_Conquest
                 Exit();
 
             MouseState mouse = Mouse.GetState();
-
-            switch (CurrentGameState)
+            if (CurrentGameState == GameState.MainMenu)
             {
-                case GameState.MainMenu:
-                    if (btnPlay.isClicked == true) CurrentGameState = GameState.Playing;
-                    btnPlay.Update(mouse);
-                    break;
-                case GameState.Playing:
+                if (btnPlay.isClicked == true) CurrentGameState = GameState.Setup;
+                btnPlay.Update(mouse);
 
-                    break;
+                add.Update(mouse,gameTime);
+                sub.Update(mouse,gameTime);
+
+                if (add.Foi_Clicado && Número_de_Jogadores < 6)
+                    Número_de_Jogadores++;
+                if (sub.Foi_Clicado && Número_de_Jogadores > 3)
+                    Número_de_Jogadores--;
             }
+            if (CurrentGameState == GameState.Setup)
+            {
 
-
+            }
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -158,22 +156,34 @@ namespace Risk_World_Conquest
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.DarkBlue);
-            Console.WriteLine((int)((width / 2) / 2));
-            Console.WriteLine((int)((height / 2) / 2));
+            //Console.WriteLine((int)((width / 2) / 2));
+            //Console.WriteLine((int)((height / 2) / 2));
 
             // TODO: Add your drawing code here
-            spriteBatch.Begin();
-            spriteBatch.Draw(mainMenu,mainMenuRec,Color.White);
-            switch (CurrentGameState)
+            if (CurrentGameState == GameState.MainMenu)
             {
-                case GameState.MainMenu:
-                    //spriteBatch.Draw(Content.Load<Texture2D>bntWIII)
-                    btnPlay.Draw(spriteBatch);
-                    break;
-                case GameState.Playing:
-                    break;
+                spriteBatch.Begin();
+                spriteBatch.Draw(mainMenu, mainMenuRec, Color.White);
+                
+                //spriteBatch.Draw(Content.Load<Texture2D>bntWIII)
+                btnPlay.Draw(spriteBatch);
+                add.Draw(spriteBatch);
+                sub.Draw(spriteBatch);
+
+                spriteBatch.DrawString(gametxt, "Jogadores:", new Vector2(1100, 250), Color.White);
+                spriteBatch.DrawString(gametxt, Número_de_Jogadores.ToString(), new Vector2(1100, 275), Color.White);
+
+                spriteBatch.End();
             }
-            spriteBatch.End();
+            if (CurrentGameState == GameState.Setup)
+            {
+                GraphicsDevice.Clear(Color.White);
+                spriteBatch.Begin();
+
+                spriteBatch.Draw(Content.Load<Texture2D>("Mapa"),new Vector2(0,0));
+                
+                spriteBatch.End();
+            }
             base.Draw(gameTime);
         }
     }

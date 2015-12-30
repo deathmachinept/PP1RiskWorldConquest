@@ -26,3 +26,37 @@ C:\Users\WkSt\Documents\PP1RiskWorldConquest\Risk World Conquest\obj\x86\Debug\R
 C:\Users\WkSt\Documents\PP1RiskWorldConquest\Risk World Conquest\obj\x86\Debug\Risk World Conquest.pdb
 C:\Users\WkSt\Documents\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\Content\risklogo.png
 C:\Users\WkSt\Documents\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\Content\800x600.jpg
+C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\Content\bntWIII.png
+C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\Content\risklogo.png
+C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\Content\800x600.jpg
+C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\Risk World Conquest.exe
+C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\Risk World Conquest.pdb
+C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\MonoGame.Framework.dll
+C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\SharpDX.MediaFoundation.dll
+C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\SharpDX.dll
+C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\SharpDX.XAudio2.dll
+C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\SharpDX.Direct3D11.dll
+C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\SharpDX.DXGI.dll
+C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\SharpDX.Direct2D1.dll
+C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\Lidgren.Network.dll
+C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\SharpDX.XInput.dll
+C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\SharpDX.RawInput.dll
+C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\SharpDX.Direct3D9.dll
+C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\SharpDX.MediaFoundation.xml
+C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\SharpDX.xml
+C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\SharpDX.XAudio2.xml
+C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\SharpDX.Direct3D11.xml
+C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\SharpDX.DXGI.xml
+C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\SharpDX.Direct2D1.xml
+C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\SharpDX.XInput.xml
+C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\SharpDX.RawInput.xml
+C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\SharpDX.Direct3D9.xml
+C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\obj\x86\Debug\Risk World Conquest.csprojResolveAssemblyReference.cache
+C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\obj\x86\Debug\Risk World Conquest.exe
+C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\obj\x86\Debug\Risk World Conquest.pdb
+C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\Content\menos.png
+C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\Content\mais.png
+C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\Content\GameText.xnb
+C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\Content\Numeros_Mapa.xnb
+C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\Content\Mapa.png
+C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\Content\Mapa2.png
