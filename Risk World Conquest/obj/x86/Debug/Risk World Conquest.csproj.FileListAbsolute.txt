@@ -59,4 +59,4 @@ C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bi
 C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\Content\GameText.xnb
 C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\Content\Numeros_Mapa.xnb
 C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\Content\Mapa.png
-C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\Content\Mapa2.png
+C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\Content\Button.png

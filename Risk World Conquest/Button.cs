@@ -13,7 +13,9 @@ namespace Risk_World_Conquest
     class Button
     {
         Texture2D Textura;
-        Vector2 Posição;
+        public Vector2 Posição;
+        //Cor a dar para as letras
+        public Color Cor=Color.Gray;
         Rectangle boundingBox;
         GraphicsDevice gdevice;
 

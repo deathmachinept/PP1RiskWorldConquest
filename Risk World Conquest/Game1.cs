@@ -37,20 +37,24 @@ namespace Risk_World_Conquest
         //Variáveis do Monogame
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        SpriteFont gametxt;
+        SpriteFont gametxt,button_text;
+        Random r=new Random();
         int width;
         int height;
         //Variáveis do Menu
         Texture2D mainMenu;
         Rectangle mainMenuRec;
         //Variáveis do Jogo
+        Texture2D button;
+        Tabuleiro tabuleiro;
         int Número_de_Jogadores=3;
+        Jogador[] Jogadores=new Jogador[6];
         enum GameState
         {
             MainMenu,
             Options,
             Setup,
-            Placing,
+            Drafting,
             Attacking,
             Reinforcing,
         }
@@ -61,8 +65,8 @@ namespace Risk_World_Conquest
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            width = 1280;
-            height = 880;
+            width = 1366;
+            height = 768;
             graphics.PreferredBackBufferHeight = height;
             graphics.PreferredBackBufferWidth = width;
             graphics.IsFullScreen = true;
@@ -94,14 +98,15 @@ namespace Risk_World_Conquest
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            button = Content.Load<Texture2D>("Button");
             btnPlay = new cButton(Content.Load<Texture2D>("risklogo"), graphics.GraphicsDevice);
             btnPlay.setPosition(new Vector2(350, 300));
             add = new Button(GraphicsDevice,Content.Load<Texture2D>("mais"),new Vector2(1100,300));
             sub = new Button(GraphicsDevice,Content.Load<Texture2D>("menos"),new Vector2(1100,350));
 
             gametxt = Content.Load<SpriteFont>("GameText");
-
+            button_text = Content.Load<SpriteFont>("Numeros_Mapa");
+            tabuleiro = new Tabuleiro(GraphicsDevice,button);
             mainMenu = Content.Load<Texture2D>("800x600");
             mainMenuRec = new Rectangle((int)((width / 2) - (mainMenu.Width / 2)), (int)((height / 2) - (mainMenu.Height / 2)), 800, 600);
             // TODO: use this.Content to load your game content here
@@ -142,7 +147,35 @@ namespace Risk_World_Conquest
             }
             if (CurrentGameState == GameState.Setup)
             {
+                for(int i=0;i<6;i++)
+                {
+                    if (i <= Número_de_Jogadores)
+                        Jogadores[i] = new Jogador(i + 1, Número_de_Jogadores);
+                    else
+                        Jogadores[i] = new Jogador();
+                }
+                    Jogadores[0].Cor = Color.Red;
+                    Jogadores[1].Cor = Color.Blue;
+                    Jogadores[2].Cor = Color.Green;
+                    Jogadores[3].Cor = Color.Yellow;
+                    Jogadores[4].Cor = Color.Black;
+                    Jogadores[5].Cor = Color.White;
+                //Vão ser rolados os dados para cada jogador para escolher o primeiro a colocar os soldados
+                int maior_numero_saido=0,jogador_com_maior_numero=-1;
+                for (int i = 0; i < Número_de_Jogadores;i++)
+                {
+                    if(maior_numero_saido<r.Next(1,7))
+                    {
+                        jogador_com_maior_numero=i;
+                    }
+                }
+                //Os Jogadores irão ocupar os vários continentes
+                int jogador_que_esta_a_inserir = jogador_com_maior_numero;
+                while(!tabuleiro.Os_Territórios_Estão_Todos_Ocupados())
+                {
 
+                }
+                //CurrentGameState = GameState.Drafting;
             }
             // TODO: Add your update logic here
 
@@ -179,9 +212,16 @@ namespace Risk_World_Conquest
             {
                 GraphicsDevice.Clear(Color.White);
                 spriteBatch.Begin();
-
+                //Desenhar o mapa
                 spriteBatch.Draw(Content.Load<Texture2D>("Mapa"),new Vector2(0,0));
                 
+                //Desenhar os botões dos países
+                for (int i = 0; i < tabuleiro.Territorios.Length;i++)
+                {
+                    tabuleiro.Territorios[i].botão.Draw(spriteBatch);
+                    spriteBatch.DrawString(button_text, tabuleiro.Territorios[i].Infantaria_Presente.ToString(), tabuleiro.Territorios[i].botão.Posição,tabuleiro.Territorios[i].botão.Cor);
+                }
+
                 spriteBatch.End();
             }
             base.Draw(gameTime);

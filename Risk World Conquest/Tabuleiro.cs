@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Storage;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Risk_World_Conquest
 {
@@ -9,58 +13,100 @@ namespace Risk_World_Conquest
     {
         public Territorio[] Territorios;
 
-        public Tabuleiro() //Construtor do Tabuleiro, vai criar os territórios e definir os vizinhos destes
+        public Tabuleiro(GraphicsDevice graphics,Texture2D Textura_Botões) //Construtor do Tabuleiro, vai criar os territórios, definir os vizinhos destes e assinalar as cores do jogador que os possui (cinzento significa que não tem dono)
         {
             Territorios = new Territorio[42];
             //0-8 América do Norte
-            Territorios[0] = new Territorio("Alaska", "América do Norte");
-            Territorios[1] = new Territorio("Território Noroeste", "América do Norte");
-            Territorios[2] = new Territorio("Alberta", "América do Norte");
-            Territorios[3] = new Territorio("Estados Unidos Oeste", "América do Norte");
-            Territorios[4] = new Territorio("Ontario", "América do Norte");
-            Territorios[5] = new Territorio("Canadá Este", "América do Norte");
-            Territorios[6] = new Territorio("Estados Unidos Este", "América do Norte");
-            Territorios[7] = new Territorio("México", "América do Norte");
-            Territorios[8] = new Territorio("Gronelândia", "América do Norte");
+            Territorios[0] = new Territorio(graphics,Textura_Botões, "Alaska", "América do Norte");
+            Territorios[0].botão.Posição = new Vector2(100, 100);
+            Territorios[1] = new Territorio(graphics, Textura_Botões, "Território Noroeste", "América do Norte");
+            Territorios[1].botão.Posição = new Vector2(204, 102);
+            Territorios[2] = new Territorio(graphics, Textura_Botões, "Alberta", "América do Norte");
+            Territorios[2].botão.Posição = new Vector2(209, 164);
+            Territorios[3] = new Territorio(graphics, Textura_Botões, "Estados Unidos Oeste", "América do Norte");
+            Territorios[3].botão.Posição = new Vector2(210, 244);
+            Territorios[4] = new Territorio(graphics, Textura_Botões, "Ontario", "América do Norte");
+            Territorios[4].botão.Posição = new Vector2(285, 175);
+            Territorios[5] = new Territorio(graphics, Textura_Botões, "Canadá Este", "América do Norte");
+            Territorios[5].botão.Posição = new Vector2(383, 176);
+            Territorios[6] = new Territorio(graphics, Textura_Botões, "Estados Unidos Este", "América do Norte");
+            Territorios[6].botão.Posição = new Vector2(308, 270);
+            Territorios[7] = new Territorio(graphics, Textura_Botões, "México", "América do Norte");
+            Territorios[7].botão.Posição = new Vector2(225, 329);
+            Territorios[8] = new Territorio(graphics, Textura_Botões, "Gronelândia", "América do Norte");
+            Territorios[8].botão.Posição = new Vector2(468, 65);
             //9-12 América do Sul
-            Territorios[9] = new Territorio("Venezuela", "América do Sul");
-            Territorios[10] = new Territorio("Brasil", "América do Sul");
-            Territorios[11] = new Territorio("Peru", "América do Sul");
-            Territorios[12] = new Territorio("Argentina", "América do Sul");
+            Territorios[9] = new Territorio(graphics, Textura_Botões, "Venezuela", "América do Sul");
+            Territorios[9].botão.Posição = new Vector2(313, 400);
+            Territorios[10] = new Territorio(graphics, Textura_Botões, "Brasil", "América do Sul");
+            Territorios[10].botão.Posição = new Vector2(410,470);
+            Territorios[11] = new Territorio(graphics, Textura_Botões, "Peru", "América do Sul");
+            Territorios[11].botão.Posição = new Vector2(335,495);
+            Territorios[12] = new Territorio(graphics, Textura_Botões, "Argentina", "América do Sul");
+            Territorios[12].botão.Posição = new Vector2(340, 570);
             //13-18 África
-            Territorios[13] = new Territorio("Norte de África", "África");
-            Territorios[14] = new Territorio("Egipto", "África");
-            Territorios[15] = new Territorio("África do Este", "África");
-            Territorios[16] = new Territorio("África Central", "África");
-            Territorios[17] = new Territorio("África do Sul", "África");
-            Territorios[18] = new Territorio("Madagáscar", "África");
+            Territorios[13] = new Territorio(graphics, Textura_Botões, "Norte de África", "África");
+            Territorios[13].botão.Posição = new Vector2(620,440);
+            Territorios[14] = new Territorio(graphics, Textura_Botões, "Egipto", "África");
+            Territorios[14].botão.Posição = new Vector2(720,415);
+            Territorios[15] = new Territorio(graphics, Textura_Botões, "África do Este", "África");
+            Territorios[15].botão.Posição = new Vector2(805,510);
+            Territorios[16] = new Territorio(graphics, Textura_Botões, "África Central", "África");
+            Territorios[16].botão.Posição = new Vector2(725,535);
+            Territorios[17] = new Territorio(graphics, Textura_Botões, "África do Sul", "África");
+            Territorios[17].botão.Posição = new Vector2(735,635);
+            Territorios[18] = new Territorio(graphics, Textura_Botões, "Madagáscar", "África");
+            Territorios[18].botão.Posição = new Vector2(853,630);
             //19-25 Europa
-            Territorios[19] = new Territorio("Europa Ocidental", "Europa");
-            Territorios[20] = new Territorio("Grã-Bretanha", "Europa");
-            Territorios[21] = new Territorio("Islândia", "Europa");
-            Territorios[22] = new Territorio("Norte da Europa", "Europa");
-            Territorios[23] = new Territorio("Sul da Europa", "Europa");
-            Territorios[24] = new Territorio("Escandinávia", "Europa");
-            Territorios[25] = new Territorio("Rússia", "Europa");
+            Territorios[19] = new Territorio(graphics, Textura_Botões, "Europa Ocidental", "Europa");
+            Territorios[19].botão.Posição = new Vector2(565,335);
+            Territorios[20] = new Territorio(graphics, Textura_Botões, "Grã-Bretanha", "Europa");
+            Territorios[20].botão.Posição = new Vector2(567,238);
+            Territorios[21] = new Territorio(graphics, Textura_Botões, "Islândia", "Europa");
+            Territorios[21].botão.Posição = new Vector2(568,140);
+            Territorios[22] = new Territorio(graphics, Textura_Botões, "Norte da Europa", "Europa");
+            Territorios[22].botão.Posição = new Vector2(670,240);
+            Territorios[23] = new Territorio(graphics, Textura_Botões, "Sul da Europa", "Europa");
+            Territorios[23].botão.Posição = new Vector2(683,290);
+            Territorios[24] = new Territorio(graphics, Textura_Botões, "Escandinávia", "Europa");
+            Territorios[24].botão.Posição = new Vector2(658,150);
+            Territorios[25] = new Territorio(graphics, Textura_Botões, "Rússia", "Europa");
+            Territorios[25].botão.Posição = new Vector2(790,195);
             //26-37 Ásia
-            Territorios[26] = new Territorio("Médio-Oriente", "Ásia");
-            Territorios[27] = new Territorio("Afeganistão", "Ásia");
-            Territorios[28] = new Territorio("Ural", "Ásia");
-            Territorios[29] = new Territorio("Sibéria", "Ásia");
-            Territorios[30] = new Territorio("Yakutsk", "Ásia");
-            Territorios[31] = new Territorio("Irkutsk", "Ásia");
-            Territorios[32] = new Territorio("Mongólia", "Ásia");
-            Territorios[33] = new Territorio("China", "Ásia");
-            Territorios[34] = new Territorio("Índia", "Ásia");
-            Territorios[35] = new Territorio("Sudeste Asiático", "Ásia");
-            Territorios[36] = new Territorio("Kamchatka", "Ásia");
-            Territorios[37] = new Territorio("Coreia", "Ásia");
+            Territorios[26] = new Territorio(graphics, Textura_Botões, "Médio-Oriente", "Ásia");
+            Territorios[26].botão.Posição = new Vector2(820,380);
+            Territorios[27] = new Territorio(graphics, Textura_Botões, "Afeganistão", "Ásia");
+            Territorios[27].botão.Posição = new Vector2(900,266);
+            Territorios[28] = new Territorio(graphics, Textura_Botões, "Ural", "Ásia");
+            Territorios[28].botão.Posição = new Vector2(920,160);
+            Territorios[29] = new Territorio(graphics, Textura_Botões, "Sibéria", "Ásia");
+            Territorios[29].botão.Posição = new Vector2(990,130);
+            Territorios[30] = new Territorio(graphics, Textura_Botões, "Yakutsk", "Ásia");
+            Territorios[30].botão.Posição = new Vector2(1090,94);
+            Territorios[31] = new Territorio(graphics, Textura_Botões, "Irkutsk", "Ásia");
+            Territorios[31].botão.Posição = new Vector2(1075,176);
+            Territorios[32] = new Territorio(graphics, Textura_Botões, "Mongólia", "Ásia");
+            Territorios[32].botão.Posição = new Vector2(1080,253);
+            Territorios[33] = new Territorio(graphics, Textura_Botões, "China", "Ásia");
+            Territorios[33].botão.Posição = new Vector2(1050,320);
+            Territorios[34] = new Territorio(graphics, Textura_Botões, "Índia", "Ásia");
+            Territorios[34].botão.Posição = new Vector2(975,375);
+            Territorios[35] = new Territorio(graphics, Textura_Botões, "Sudeste Asiático", "Ásia");
+            Territorios[35].botão.Posição = new Vector2(1080,404);
+            Territorios[36] = new Territorio(graphics, Textura_Botões, "Kamchatka", "Ásia");
+            Territorios[36].botão.Posição = new Vector2(1192,89);
+            Territorios[37] = new Territorio(graphics, Textura_Botões, "Coreia", "Ásia");
+            Territorios[37].botão.Posição = new Vector2(1225,260);
             //38-41 Oceânia
-            Territorios[38] = new Territorio("Indonésia", "Oceânia");
-            Territorios[39] = new Territorio("Nova Guiné", "Oceânia");
-            Territorios[40] = new Territorio("Austrália Oeste", "Oceânia");
-            Territorios[41] = new Territorio("Austrália Este", "Oceânia");
-
+            Territorios[38] = new Territorio(graphics, Textura_Botões, "Indonésia", "Oceânia");
+            Territorios[38].botão.Posição = new Vector2(1108,520);
+            Territorios[39] = new Territorio(graphics, Textura_Botões, "Nova Guiné", "Oceânia");
+            Territorios[39].botão.Posição = new Vector2(1220,496);
+            Territorios[40] = new Territorio(graphics, Textura_Botões, "Austrália Oeste", "Oceânia");
+            Territorios[40].botão.Posição = new Vector2(1155,627);
+            Territorios[41] = new Territorio(graphics, Textura_Botões, "Austrália Este", "Oceânia");
+            Territorios[41].botão.Posição = new Vector2(1271,621);
+            
             Territorios[0].Nomes_Territórios_Vizinhos.Add("Território Noroeste");
             Territorios[0].Nomes_Territórios_Vizinhos.Add("Alberta");
             Territorios[0].Nomes_Territórios_Vizinhos.Add("Kamchatka");
@@ -275,6 +321,19 @@ namespace Risk_World_Conquest
                     resultado = true;
             }
             return resultado;
+        }
+
+        public bool Os_Territórios_Estão_Todos_Ocupados()
+        {
+            bool pelo_menos_um_livre=false;
+            for(int i=0;i<Territorios.Length;i++)
+            {
+                if(Territorios[i].Identificação_do_Jogador_que_o_possui==-1 && Territorios[i].Infantaria_Presente==0)
+                {
+                    pelo_menos_um_livre = true;
+                }
+            }
+            return pelo_menos_um_livre;
         }
     }
 }
