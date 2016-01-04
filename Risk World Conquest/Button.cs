@@ -15,7 +15,7 @@ namespace Risk_World_Conquest
         Texture2D Textura;
         public Vector2 Posição;
         //Cor a dar para as letras
-        public Color Cor=Color.Gray;
+        public Color Cor_Texto=Color.Gray;
         Rectangle boundingBox;
         GraphicsDevice gdevice;
 
@@ -40,7 +40,7 @@ namespace Risk_World_Conquest
             else
                 Está_Por_Cima = false;
 
-            if (Está_Por_Cima && mouseState.LeftButton == ButtonState.Pressed && Tempo_Esperado>=500)
+            if (Está_Por_Cima && mouseState.LeftButton == ButtonState.Pressed && Tempo_Esperado>=250)
             {
                 Foi_Clicado = true;
                 Tempo_Esperado = 0;
@@ -53,6 +53,11 @@ namespace Risk_World_Conquest
         public void Draw(SpriteBatch spritebatch)
         {
             spritebatch.Draw(this.Textura,this.boundingBox,Color.White);
+        }
+
+        public void Draw_Botão_Território(SpriteBatch spritebatch)
+        {
+            spritebatch.Draw(this.Textura, this.boundingBox, new Color(Color.White,0));
         }
     }
 }

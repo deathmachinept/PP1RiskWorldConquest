@@ -12,6 +12,7 @@ namespace Risk_World_Conquest
     class Territorio
     {
         public string Nome;
+        public int índice;
         public int Infantaria_Presente;
         public int Identificação_do_Jogador_que_o_possui;
         string Continente_a_que_pertence;
@@ -26,6 +27,14 @@ namespace Risk_World_Conquest
             Infantaria_Presente = 0;
             Continente_a_que_pertence = id_continente;
             botão = new Button(graphics, textura_do_botão, new Vector2(0, 0));
+        }
+
+        public bool Está_Desocupado()
+        {
+            if (Identificação_do_Jogador_que_o_possui == -1 && Infantaria_Presente == 0)
+                return true;
+            else
+                return false;
         }
     }
 }
