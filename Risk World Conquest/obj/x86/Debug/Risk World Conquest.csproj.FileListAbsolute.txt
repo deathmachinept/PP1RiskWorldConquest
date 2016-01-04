@@ -26,3 +26,9 @@ C:\Users\WkSt\Documents\PP1RiskWorldConquest\Risk World Conquest\obj\x86\Debug\R
 C:\Users\WkSt\Documents\PP1RiskWorldConquest\Risk World Conquest\obj\x86\Debug\Risk World Conquest.pdb
 C:\Users\WkSt\Documents\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\Content\risklogo.png
 C:\Users\WkSt\Documents\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\Content\800x600.jpg
+C:\Users\WkSt\Documents\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\Content\Mapa.png
+C:\Users\WkSt\Documents\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\Content\Mapa2.png
+C:\Users\WkSt\Documents\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\Content\menos.png
+C:\Users\WkSt\Documents\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\Content\mais.png
+C:\Users\WkSt\Documents\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\Content\GameText.xnb
+C:\Users\WkSt\Documents\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\Content\Numeros_Mapa.xnb
