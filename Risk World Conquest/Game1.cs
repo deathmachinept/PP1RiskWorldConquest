@@ -92,7 +92,7 @@ namespace Risk_World_Conquest
             height = 768;
             graphics.PreferredBackBufferHeight = height;
             graphics.PreferredBackBufferWidth = width;
-            graphics.IsFullScreen = true;
+            graphics.IsFullScreen = false;
             graphics.ApplyChanges();
             IsMouseVisible = true;
             Content.RootDirectory = "Content";

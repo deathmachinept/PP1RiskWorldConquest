@@ -62,3 +62,11 @@ C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bi
 C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\Content\Button.png
 C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\Content\proximo.png
 C:\Users\Utilizador\Documents\GitHub\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\Content\confirmar.png
+C:\Users\WkSt\Documents\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\Content\Mapa.png
+C:\Users\WkSt\Documents\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\Content\Button.png
+C:\Users\WkSt\Documents\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\Content\proximo.png
+C:\Users\WkSt\Documents\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\Content\confirmar.png
+C:\Users\WkSt\Documents\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\Content\menos.png
+C:\Users\WkSt\Documents\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\Content\mais.png
+C:\Users\WkSt\Documents\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\Content\GameText.xnb
+C:\Users\WkSt\Documents\PP1RiskWorldConquest\Risk World Conquest\bin\Windows\Debug\Content\Numeros_Mapa.xnb
